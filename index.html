@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NOVA TECH - Building modern digital solutions, web development, mobile apps, and cloud services.">
+    <title>NOVA TECH | Modern Digital Solutions</title>
+
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         1. HEADER / NAVIGATION BAR
+         ========================================== -->
+    <header class="header">
+        <nav class="navbar container" aria-label="Main Navigation">
+            <!-- Brand Logo -->
+            <a href="#home" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">NOVA <span class="highlight">TECH</span></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item mobile-only">
+                    <a href="#contact" class="btn btn-primary nav-btn">Get Started</a>
+                </li>
+            </ul>
+
+            <!-- Header Action Button (Desktop) -->
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button (Hamburger) -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ==========================================
+             2. HERO SECTION
+             ========================================== -->
+        <section class="hero" id="home">
+            <!-- Decorative CSS background elements -->
+            <div class="decor-circle circle-1"></div>
+            <div class="decor-circle circle-2"></div>
+            
+            <div class="container hero-container">
+                <!-- Hero Left Content -->
+                <div class="hero-content">
+                    <span class="badge">🚀 Next Generation Technology</span>
+                    <h1 class="hero-title">Build Something <span class="gradient-text">Amazing</span></h1>
+                    <p class="hero-subtitle">
+                        NOVA TECH empowers businesses to create powerful, modern digital solutions. 
+                        We transform innovative ideas into robust products with sleek design and cutting-edge performance.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary btn-large">Get Started</a>
+                        <a href="#services" class="btn btn-outline btn-large">Explore Services</a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Visual Card -->
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="card-header-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="card-graphic">
+                            <div class="tech-icon-wrapper">
+                                <span class="tech-emoji">💻</span>
+                            </div>
+                            <h3>Smart Tech Platform</h3>
+                            <p class="card-desc">High speed processing & automated workflows built for the future.</p>
+                            
+                            <!-- Mini Stat Badges -->
+                            <div class="hero-mini-stats">
+                                <div class="mini-stat">
+                                    <span class="stat-number">99.9%</span>
+                                    <span class="stat-label">Uptime</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="stat-number">10x</span>
+                                    <span class="stat-label">Faster Speed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             3. FEATURES SECTION
+             ========================================== -->
+        <section class="features section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Core Strengths</span>
+                    <h2 class="section-title">Why Choose Nova Tech?</h2>
+                    <p class="section-desc">We deliver unmatched quality and scalable technological solutions tailored to your business needs.</p>
+                </div>
+
+                <div class="features-grid">
+                    <!-- Feature Card 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Fast Performance</h3>
+                        <p class="feature-desc">Engineered for lightning-fast speeds and optimal load times across all platforms and devices.</p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3 class="feature-title">Modern Design</h3>
+                        <p class="feature-desc">Clean, elegant, user-focused interfaces designed to captivate and engage your audience effectively.</p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="feature-title">Secure Technology</h3>
+                        <p class="feature-desc">Built with industry-leading security practices to keep your enterprise and user data completely safe.</p>
+                    </div>
+
+                    <!-- Feature Card 4 -->
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3 class="feature-title">24/7 Support</h3>
+                        <p class="feature-desc">Dedicated technical support available around the clock to assist you whenever you need help.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             4. ABOUT SECTION
+             ========================================== -->
+        <section class="about section" id="about">
+            <div class="container about-container">
+                <!-- Left Visual Graphic -->
+                <div class="about-visual">
+                    <div class="about-image-card">
+                        <div class="visual-illustration">
+                            <div class="illustration-box box-1">
+                                <span class="box-icon">🚀</span>
+                                <h4>Innovation</h4>
+                            </div>
+                            <div class="illustration-box box-2">
+                                <span class="box-icon">⚙️</span>
+                                <h4>Scalability</h4>
+                            </div>
+                            <div class="illustration-box box-3">
+                                <span class="box-icon">📊</span>
+                                <h4>Growth</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="about-content">
+                    <span class="section-subtitle">Who We Are</span>
+                    <h2 class="section-title">Technology That Moves You Forward</h2>
+                    <p class="about-text">
+                        At NOVA TECH, we are passionate about building digital software solutions that drive growth and digital transformation. 
+                        Our team of experts combines creative strategy with robust technology to deliver exceptional results for startups and enterprise clients alike.
+                    </p>
+
+                    <!-- Statistics Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <h3 class="stat-value">100+</h3>
+                            <p class="stat-title">Projects Delivered</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 class="stat-value">50+</h3>
+                            <p class="stat-title">Happy Clients</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 class="stat-value">5+</h3>
+                            <p class="stat-title">Years Experience</p>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             5. SERVICES SECTION
+             ========================================== -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">What We Offer</span>
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-desc">Comprehensive digital technology solutions customized to empower your brand.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-desc">Custom, responsive web applications built with modern frontend & backend technologies for maximum reliability.</p>
+                        <a href="#contact" class="service-link">Learn More &rarr;</a>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3 class="service-title">Mobile Applications</h3>
+                        <p class="service-desc">Cross-platform mobile apps for iOS and Android delivering seamless user experiences and fast performance.</p>
+                        <a href="#contact" class="service-link">Learn More &rarr;</a>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3 class="service-title">Cloud Solutions</h3>
+                        <p class="service-desc">Scalable cloud deployment, infrastructure setup, and automated data management services for your business.</p>
+                        <a href="#contact" class="service-link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             6. CALL TO ACTION (CTA) SECTION
+             ========================================== -->
+        <section class="cta section">
+            <div class="container cta-container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Start Your Next Project?</h2>
+                    <p class="cta-text">Let's turn your ideas into a powerful digital experience. Partner with Nova Tech today!</p>
+                    <a href="#contact" class="btn btn-light btn-large">Start Your Journey</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             7. CONTACT SECTION
+             ========================================== -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="section-desc">Have a question or want to work together? Fill out the form below and we will get back to you promptly.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Form Card -->
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <!-- Form Success/Error Alert Message Container -->
+                        <div class="form-message" id="form-message" aria-live="polite"></div>
+
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+                            <span class="error-text" id="name-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <span class="error-text" id="email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+                            <span class="error-text" id="subject-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                            <span class="error-text" id="message-error"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ==========================================
+         8. FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <!-- Footer Column 1: Brand Info -->
+            <div class="footer-col brand-col">
+                <a href="#home" class="logo footer-logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">NOVA <span class="highlight">TECH</span></span>
+                </a>
+                <p class="footer-desc">
+                    Empowering businesses through cutting-edge technology and innovative digital software solutions.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                    <a href="#" aria-label="GitHub">💻</a>
+                    <a href="#" aria-label="Facebook">🌐</a>
+                </div>
+            </div>
+
+            <!-- Footer Column 2: Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Column 3: Services -->
+            <div class="footer-col">
+                <h4 class="footer-title">Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Web Development</a></li>
+                    <li><a href="#services">Mobile Applications</a></li>
+                    <li><a href="#services">Cloud Solutions</a></li>
+                    <li><a href="#services">UI/UX Design</a></li>
+                </ul>
+            </div>
+
+            <!-- Footer Column 4: Contact Info -->
+            <div class="footer-col">
+                <h4 class="footer-title">Contact Info</h4>
+                <ul class="footer-info">
+                    <li>📍 123 Tech Avenue, Silicon Valley</li>
+                    <li>📧 info@novatech.example</li>
+                    <li>📞 +1 (555) 019-2834</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright bar -->
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 NOVA TECH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
