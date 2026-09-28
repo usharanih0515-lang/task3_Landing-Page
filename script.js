@@ -1,9 +1,9 @@
 /* ==========================================================================
    NOVA TECH - Main JavaScript (script.js)
-   Beginner-friendly, Clean, Interactivity & Form Validation
+   Clean, Reliable, Deployment-Ready Interactivity & Form Validation
    ========================================================================== */
 
-// Wait until the DOM content is fully loaded before executing scripts
+// Execute scripts once DOM is fully parsed
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ----------------------------------------------------------------------
@@ -11,20 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
        ---------------------------------------------------------------------- */
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-menu a');
 
     if (hamburgerBtn && navMenu) {
-        // Toggle mobile menu visibility when hamburger button is clicked
+        // Toggle mobile navigation menu when hamburger button is clicked
         hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('active');
+            const isActive = hamburgerBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
-
-            // Update accessibility aria attribute
-            const isExpanded = hamburgerBtn.classList.contains('active');
-            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+            hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
 
-        // Close mobile menu when a navigation link is clicked
+        // Close mobile navigation drawer when any nav link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 hamburgerBtn.classList.remove('active');
@@ -36,21 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ----------------------------------------------------------------------
-       2. ACTIVE NAVIGATION HIGHLIGHT ON SCROLL
+       2. ACTIVE NAVIGATION LINK HIGHLIGHT ON SCROLL
        ---------------------------------------------------------------------- */
     const sections = document.querySelectorAll('section[id]');
 
     function highlightActiveNavLink() {
-        const scrollY = window.pageYOffset;
+        const scrollPosition = window.pageYOffset + 140; // Adjust offset for fixed header
 
         sections.forEach(currentSection => {
             const sectionHeight = currentSection.offsetHeight;
-            const sectionTop = currentSection.offsetTop - 120; // Offset for header height
+            const sectionTop = currentSection.offsetTop;
             const sectionId = currentSection.getAttribute('id');
-            const correspondingNavLink = document.querySelector(`.nav-menu a[href*="${sectionId}"]`);
+            const correspondingNavLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
 
             if (correspondingNavLink) {
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                     correspondingNavLink.classList.add('active');
                 } else {
                     correspondingNavLink.classList.remove('active');
@@ -59,29 +56,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Attach scroll event listener for active link highlight
+    // Listen for window scroll events to update active link
     window.addEventListener('scroll', highlightActiveNavLink);
+    highlightActiveNavLink(); // Initial call
 
 
     /* ----------------------------------------------------------------------
-       3. CONTACT FORM VALIDATION & SUBMISSION
+       3. CONTACT FORM VALIDATION & STATIC SUBMISSION FEEDBACK
        ---------------------------------------------------------------------- */
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
 
     if (contactForm) {
+        const nameInput = document.getElementById('fullname');
+        const emailInput = document.getElementById('email');
+        const subjectInput = document.getElementById('subject');
+        const messageInput = document.getElementById('message');
+
+        // Clear error styling dynamically when user types into any input
+        const allInputs = contactForm.querySelectorAll('input, textarea');
+        allInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('invalid');
+                const errorSpanId = input.id === 'fullname' ? 'name-error' : `${input.id}-error`;
+                const errorSpan = document.getElementById(errorSpanId);
+                if (errorSpan) {
+                    errorSpan.textContent = '';
+                }
+            });
+        });
+
         contactForm.addEventListener('submit', (event) => {
-            // Prevent standard form submission (page refresh)
+            // Prevent default HTTP form submit refresh
             event.preventDefault();
 
-            // Clear previous error messages & styles
+            // Clear previous errors
             clearFormErrors();
-
-            // Retrieve form input values
-            const nameInput = document.getElementById('fullname');
-            const emailInput = document.getElementById('email');
-            const subjectInput = document.getElementById('subject');
-            const messageInput = document.getElementById('message');
 
             const nameValue = nameInput.value.trim();
             const emailValue = emailInput.value.trim();
@@ -90,67 +100,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let isValid = true;
 
-            // Validate Full Name
+            // 1. Validate Full Name
             if (nameValue === '') {
                 showInputError(nameInput, 'name-error', 'Please enter your full name.');
                 isValid = false;
             }
 
-            // Validate Email Address using simple Regular Expression
+            // 2. Validate Email format via Regular Expression
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (emailValue === '') {
                 showInputError(emailInput, 'email-error', 'Please enter your email address.');
                 isValid = false;
             } else if (!emailPattern.test(emailValue)) {
-                showInputError(emailInput, 'email-error', 'Please enter a valid email address.');
+                showInputError(emailInput, 'email-error', 'Please enter a valid email address (e.g. name@domain.com).');
                 isValid = false;
             }
 
-            // Validate Subject
+            // 3. Validate Subject
             if (subjectValue === '') {
                 showInputError(subjectInput, 'subject-error', 'Please enter a subject.');
                 isValid = false;
             }
 
-            // Validate Message
+            // 4. Validate Message
             if (messageValue === '') {
-                showInputError(messageInput, 'message-error', 'Please write your message.');
+                showInputError(messageInput, 'message-error', 'Please enter your message.');
                 isValid = false;
             }
 
-            // If form inputs are valid, show success message and reset form
+            // On success, display visible feedback message and reset inputs
             if (isValid) {
-                showFormAlert('Thank you! Your message has been sent successfully. We will get back to you soon.', 'success');
+                showFormAlert('Thank you! Your message has been received (Demo Mode). We will get back to you shortly!', 'success');
                 contactForm.reset();
 
-                // Hide success message after 6 seconds
+                // Auto hide message banner after 7 seconds
                 setTimeout(() => {
-                    formMessage.style.display = 'none';
-                    formMessage.className = 'form-message';
-                }, 6000);
-            } else {
-                showFormAlert('Please fix the errors above before submitting.', 'error');
-            }
-        });
-            // Clear individual input error state as user types
-            const allInputs = contactForm.querySelectorAll('input, textarea');
-            allInputs.forEach(input => {
-                input.addEventListener('input', () => {
-                    input.classList.remove('invalid');
-                    const errorSpan = document.getElementById(`${input.id === 'fullname' ? 'name' : input.id}-error`);
-                    if (errorSpan) {
-                        errorSpan.textContent = '';
+                    if (formMessage) {
+                        formMessage.style.display = 'none';
+                        formMessage.className = 'form-message';
                     }
-                });
-            });
+                }, 7000);
+            } else {
+                showFormAlert('Please fix the highlighted errors above before submitting.', 'error');
+            }
         });
     }
 
     /**
-     * Helper function to display input-specific error messages
+     * Helper to set input error state and message
      */
     function showInputError(inputElement, errorSpanId, errorMessage) {
-        inputElement.classList.add('invalid');
+        if (inputElement) {
+            inputElement.classList.add('invalid');
+        }
         const errorSpan = document.getElementById(errorSpanId);
         if (errorSpan) {
             errorSpan.textContent = errorMessage;
@@ -158,26 +160,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Helper function to clear all error styles & messages
+     * Helper to clear all form error states
      */
     function clearFormErrors() {
+        if (!contactForm) return;
         const inputs = contactForm.querySelectorAll('input, textarea');
         inputs.forEach(input => input.classList.remove('invalid'));
 
         const errorSpans = contactForm.querySelectorAll('.error-text');
         errorSpans.forEach(span => span.textContent = '');
 
-        formMessage.style.display = 'none';
-        formMessage.className = 'form-message';
+        if (formMessage) {
+            formMessage.style.display = 'none';
+            formMessage.className = 'form-message';
+        }
     }
 
     /**
-     * Helper function to show overall form success or error alert banner
+     * Helper to show form alert box
      */
     function showFormAlert(message, type) {
+        if (!formMessage) return;
         formMessage.textContent = message;
         formMessage.className = `form-message ${type}`;
         formMessage.style.display = 'block';
     }
+
+
+    /* ----------------------------------------------------------------------
+       4. PREVENT DUMMY LINK REFRESH
+       ---------------------------------------------------------------------- */
+    const dummyLinks = document.querySelectorAll('a[href="#"], a[href="javascript:void(0)"]');
+    dummyLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+        });
+    });
 
 });
